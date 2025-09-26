@@ -1,3 +1,54 @@
+<<<<<<< HEAD
+/* ===========================
+   VARIÁVEIS DE CORES E FONTES
+=========================== */
+:root {
+  --fundo-cor: #0A0F1F;
+  --texto-cor: #B0B8C1;
+  --primaria-cor: #00AEEF;
+  --secundaria-cor: #B0B8C1;
+  --destaque-cor: #0f095f;
+  --hover-cor: #160bac;
+  --clara-cor: #fff;
+  --borda-cor: #18203D;
+  --botao-cor: #1411a3;
+  --fonte-principal: 'Poppins', sans-serif;
+}
+
+/* ===========================
+   ESTILOS GERAIS
+=========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--fonte-principal);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--fundo-cor);
+  color: var(--texto-cor);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===========================
+   HEADER E NAVEGAÇÃO
+=========================== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--primaria-cor);
+=======
 /* ========================================
    RESET E CONFIGURAÇÕES BÁSICAS
    ======================================== */
@@ -67,18 +118,238 @@ body {
     height: 100%;
     pointer-events: none; /* Não interfere com cliques */
     z-index: 1;
+>>>>>>> 8510688 (Portifolio Adaptado V.02)
 }
 
-.particle {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: var(--primary-blue);
-    border-radius: 50%;
-    animation: float 6s ease-in-out infinite;
-    box-shadow: 0 0 10px var(--primary-blue);
+nav {
+  display: flex;
+  align-items: center;
+  padding: 15px 30px;
+  gap: 20px;
 }
 
+<<<<<<< HEAD
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--clara-cor);
+}
+
+/* ===========================
+   BOTÃO HAMBURGUER
+=========================== */
+.hamburguer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 18px;
+  cursor: pointer;
+  z-index: 1001; /* acima do overlay */
+}
+
+.hamburguer span {
+  display: block;
+  height: 3px;
+  background: var(--clara-cor);
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* animação do X no hamburguer */
+.hamburguer.ativo span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburguer.ativo span:nth-child(2) {
+  opacity: 0;
+}
+.hamburguer.ativo span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ===========================
+   MENU DE LINKS
+=========================== */
+.nav-links {
+  list-style: none;
+  position: fixed;
+  top: 0;
+  left: -250px; /* escondido à esquerda */
+  width: 250px;
+  height: 100%;
+  background: var(--primaria-cor);
+  flex-direction: column;
+  padding: 60px 20px;
+  gap: 20px;
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+.nav-links li {
+  margin-bottom: 20px;
+}
+
+.nav-links li a {
+  color: var(--clara-cor);
+  font-weight: 600;
+  transition: 0.3s;
+  padding-left: 12px;
+}
+
+.nav-links li a:hover {
+  color: var(--destaque-cor);
+}
+
+/* Classe para mostrar o menu */
+.nav-links.show {
+  left: 0;
+  padding-top: 70px;
+}
+
+/* Overlay escuro atrás do menu */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 900;
+}
+
+.menu-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ===========================
+   HERO E VISUAL - RESPONSIVO
+=========================== */
+.visual {
+  height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #0a0f1f,   /* azul quase preto */
+    #0f3b7a,   /* azul mais fechado */
+    #0a0f1f    /* volta pro escuro pra fechar o loop */
+  );
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease-in-out infinite alternate;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+@keyframes gradientMove {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.visual .hero {
+  display: flex;
+  align-items: center; /* centraliza verticalmente */
+  justify-content: center; /* centraliza horizontalmente */
+  gap: 50px; /* espaço entre imagem e texto */
+  flex-wrap: wrap; /* permite quebra em telas pequenas */
+  text-align: left;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.visual .hero img {
+  max-width: 300px; /* tamanho máximo da imagem */
+  width: 100%; /* se a tela diminuir, a imagem diminui também */
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 
+      0 0 10px #000000,
+      0 0 20px #000000,
+      0 0 30px #082172,
+      0 0 40px #0e086949;
+  transition: all 0.7s ease;
+  object-fit: cover;
+}
+
+.visual .hero img:hover {
+  box-shadow: 
+      0 0 20px #00F0FF,
+      0 0 30px #00F0FF,
+      0 0 40px #00F0FF,
+      0 0 50px #00F0FF;
+  border-color: #00F0FF;
+}
+
+.texto {
+  background-color: #0d152e;
+  border-radius: 40px;
+  padding: 20px;
+  box-shadow: 
+      0 0 10px #000000,
+      0 0 20px #000000,
+      0 0 30px #082172,
+      0 0 40px #0e086949;
+  max-width: 500px; /* limita largura máxima */
+  width: 100%; /* ocupa todo espaço disponível em telas pequenas */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: all 0.7s ease;
+}
+
+.texto:hover {
+  box-shadow: 
+      0 0 20px #00F0FF,
+      0 0 30px #00F0FF,
+      0 0 40px #00F0FF,
+      0 0 50px #00F0FF;
+  border-color: #00F0FF;
+}
+
+.texto h1 {
+  font-size: 2.5rem;
+  color: var(--clara-cor);
+}
+
+.texto p {
+  font-size: 1.1rem;
+  color: var(--texto-cor);
+}
+
+.texto button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background: var(--destaque-cor);
+  color: var(--clara-cor);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.texto button:hover {
+  background: var(--hover-cor);
+}
+
+/* ===========================
+   RESPONSIVIDADE HERO
+=========================== */
+@media (max-width: 1024px) {
+  .visual .hero {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .visual .hero {
+    flex-direction: column; /* imagem em cima, texto embaixo */
+    text-align: center;
+    gap: 30px;
+  }
+=======
 /* Posicionamento individual de cada partícula */
 .particle:nth-child(1) { top: 20%; left: 20%; animation-delay: 0s; animation-duration: 8s; }
 .particle:nth-child(2) { top: 60%; left: 80%; animation-delay: 2s; animation-duration: 6s; }
@@ -1062,20 +1333,18 @@ section {
     .hamburger {
         display: flex;
     }
+>>>>>>> 8510688 (Portifolio Adaptado V.02)
 
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px;
-        flex-direction: column;
-        background: rgba(10, 14, 26, 0.98);
-        width: 100%;
-        text-align: center;
-        transition: var(--transition-smooth);
-        backdrop-filter: blur(10px);
-        padding: 2rem 0;
-    }
+  .texto {
+    border-radius: 30px;
+    padding: 15px;
+  }
 
+<<<<<<< HEAD
+  .visual .hero img {
+    max-width: 200px;
+  }
+=======
     .nav-menu.active {
         left: 0;
     }
@@ -1112,10 +1381,138 @@ section {
         max-width: 250px;
         justify-content: center;
     }
+>>>>>>> 8510688 (Portifolio Adaptado V.02)
 }
 
 /* === SMARTPHONES === */
 @media (max-width: 480px) {
+<<<<<<< HEAD
+  .texto h1 {
+    font-size: 2rem;
+  }
+  .texto p {
+    font-size: 1rem;
+  }
+  .texto button {
+    padding: 8px 16px;
+  }
+}
+
+/* ===========================
+   SEÇÕES
+=========================== */
+section {
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--primaria-cor);
+}
+
+.servicos,
+.projetos {
+  display: grid;
+  gap: 20px;
+}
+
+.servicos {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.projetos {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* CARD */
+.card {
+  background: var(--clara-cor);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.projeto img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* ===========================
+   FORMULÁRIO
+=========================== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  margin: auto;
+}
+
+input, textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  background: var(--primaria-cor);
+  color: var(--clara-cor);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button[type="submit"]:hover {
+  background: var(--secundaria-cor);
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+footer {
+  background: var(--primaria-cor);
+  color: var(--clara-cor);
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+/* ===========================
+   BOTÃO VOLTAR AO TOPO
+=========================== */
+#topBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  background: var(--primaria-cor);
+  color: var(--clara-cor);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+}
+
+/* ===========================
+   RESPONSIVIDADE NAV
+=========================== */
+@media (max-width: 768px) {
+  .nav-links {
+    width: 200px;
+    padding: 60px 15px;
+  }
+}
+=======
     .container {
         padding: 0 15px;
     }
@@ -1165,3 +1562,4 @@ section {
 .btn:hover {
     will-change: transform;
 }
+>>>>>>> 8510688 (Portifolio Adaptado V.02)
