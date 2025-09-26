@@ -1,56 +1,71 @@
-/* Reset e configurações básicas */
+/* ========================================
+   RESET E CONFIGURAÇÕES BÁSICAS
+   ======================================== */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+/* ========================================
+   VARIÁVEIS CSS (DESIGN TOKENS)
+   ======================================== */
+
 :root {
-    /* Paleta de cores */
-    --primary-blue: #00d4ff;
-    --dark-blue: #0a1628;
-    --deep-blue: #1a2332;
-    --soft-gray: #8892b0;
-    --light-gray: #ccd6f6;
-    --dark-bg: #0a0e1a;
-    --card-bg: rgba(26, 35, 50, 0.8);
-    --accent-glow: rgba(0, 212, 255, 0.3);
+    /* === PALETA DE CORES === */
+    --primary-blue: #00d4ff;        /* Azul principal - usado em botões e destaques */
+    --dark-blue: #0a1628;           /* Azul escuro - backgrounds */
+    --deep-blue: #1a2332;           /* Azul profundo - cards e seções */
+    --soft-gray: #8892b0;           /* Cinza suave - textos secundários */
+    --light-gray: #ccd6f6;          /* Cinza claro - textos principais */
+    --dark-bg: #0a0e1a;             /* Background principal escuro */
+    --card-bg: rgba(26, 35, 50, 0.8); /* Background dos cards com transparência */
+    --accent-glow: rgba(0, 212, 255, 0.3); /* Brilho de destaque */
     
-    /* Tipografia */
+    /* === TIPOGRAFIA === */
     --font-primary: 'Poppins', sans-serif;
     
-    /* Transições */
+    /* === TRANSIÇÕES === */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-html {
-    scroll-behavior: smooth;
-}
+/* ========================================
+   ESTILOS GLOBAIS
+   ======================================== */
 
 body {
     font-family: var(--font-primary);
     background: var(--dark-bg);
     color: var(--light-gray);
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Evita scroll horizontal */
 }
 
-/* Container padrão */
+/* Container padrão para centralizar conteúdo */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* Partículas animadas de fundo */
+/* ========================================
+   ELEMENTOS DECORATIVOS DE FUNDO
+   ======================================== */
+
+/* === PARTÍCULAS ANIMADAS === */
 .particles {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none;
+    pointer-events: none; /* Não interfere com cliques */
     z-index: 1;
 }
 
@@ -64,62 +79,17 @@ body {
     box-shadow: 0 0 10px var(--primary-blue);
 }
 
-.particle:nth-child(1) {
-    top: 20%;
-    left: 20%;
-    animation-delay: 0s;
-    animation-duration: 8s;
-}
+/* Posicionamento individual de cada partícula */
+.particle:nth-child(1) { top: 20%; left: 20%; animation-delay: 0s; animation-duration: 8s; }
+.particle:nth-child(2) { top: 60%; left: 80%; animation-delay: 2s; animation-duration: 6s; }
+.particle:nth-child(3) { top: 80%; left: 40%; animation-delay: 4s; animation-duration: 10s; }
+.particle:nth-child(4) { top: 40%; left: 60%; animation-delay: 1s; animation-duration: 7s; }
+.particle:nth-child(5) { top: 10%; left: 90%; animation-delay: 3s; animation-duration: 9s; }
+.particle:nth-child(6) { top: 70%; left: 10%; animation-delay: 5s; animation-duration: 8s; }
+.particle:nth-child(7) { top: 30%; left: 30%; animation-delay: 2.5s; animation-duration: 6.5s; }
+.particle:nth-child(8) { top: 90%; left: 70%; animation-delay: 4.5s; animation-duration: 7.5s; }
 
-.particle:nth-child(2) {
-    top: 60%;
-    left: 80%;
-    animation-delay: 2s;
-    animation-duration: 6s;
-}
-
-.particle:nth-child(3) {
-    top: 80%;
-    left: 40%;
-    animation-delay: 4s;
-    animation-duration: 10s;
-}
-
-.particle:nth-child(4) {
-    top: 40%;
-    left: 60%;
-    animation-delay: 1s;
-    animation-duration: 7s;
-}
-
-.particle:nth-child(5) {
-    top: 10%;
-    left: 90%;
-    animation-delay: 3s;
-    animation-duration: 9s;
-}
-
-.particle:nth-child(6) {
-    top: 70%;
-    left: 10%;
-    animation-delay: 5s;
-    animation-duration: 8s;
-}
-
-.particle:nth-child(7) {
-    top: 30%;
-    left: 30%;
-    animation-delay: 2.5s;
-    animation-duration: 6.5s;
-}
-
-.particle:nth-child(8) {
-    top: 90%;
-    left: 70%;
-    animation-delay: 4.5s;
-    animation-duration: 7.5s;
-}
-
+/* Animação de flutuação das partículas */
 @keyframes float {
     0%, 100% {
         transform: translateY(0px) rotate(0deg);
@@ -131,71 +101,65 @@ body {
     }
 }
 
-/* Blobs animados */
+/* === BLOBS DECORATIVOS === */
 .blob {
     position: fixed;
     border-radius: 50%;
-    filter: blur(40px);
+    filter: blur(40px); /* Efeito de desfoque */
     pointer-events: none;
     z-index: 1;
     animation: blob 20s infinite;
 }
 
+/* Configuração individual de cada blob */
 .blob-1 {
-    top: 10%;
-    left: 10%;
-    width: 300px;
-    height: 300px;
+    top: 10%; left: 10%;
+    width: 300px; height: 300px;
     background: linear-gradient(45deg, var(--primary-blue), var(--deep-blue));
     opacity: 0.1;
     animation-delay: 0s;
 }
 
 .blob-2 {
-    top: 60%;
-    right: 10%;
-    width: 200px;
-    height: 200px;
+    top: 60%; right: 10%;
+    width: 200px; height: 200px;
     background: linear-gradient(45deg, var(--deep-blue), var(--primary-blue));
     opacity: 0.15;
     animation-delay: 10s;
 }
 
 .blob-3 {
-    bottom: 10%;
-    left: 50%;
-    width: 250px;
-    height: 250px;
+    bottom: 10%; left: 50%;
+    width: 250px; height: 250px;
     background: linear-gradient(45deg, var(--primary-blue), var(--dark-blue));
     opacity: 0.1;
     animation-delay: 5s;
 }
 
+/* Animação de movimento dos blobs */
 @keyframes blob {
-    0%, 100% {
-        transform: translate(0px, 0px) scale(1);
-    }
-    33% {
-        transform: translate(30px, -50px) scale(1.1);
-    }
-    66% {
-        transform: translate(-20px, 20px) scale(0.9);
-    }
+    0%, 100% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
 }
 
-/* Navbar */
+/* ========================================
+   NAVEGAÇÃO (NAVBAR)
+   ======================================== */
+
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     background: rgba(10, 14, 26, 0.95);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px); /* Efeito de vidro */
     border-bottom: 1px solid rgba(0, 212, 255, 0.1);
     z-index: 1000;
     transition: var(--transition-smooth);
 }
 
+/* Estado da navbar quando a página é rolada */
 .navbar.scrolled {
     background: rgba(10, 14, 26, 0.98);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -211,6 +175,7 @@ body {
     height: 70px;
 }
 
+/* Logo com efeito gradiente */
 .nav-logo .logo-text {
     font-size: 1.8rem;
     font-weight: 800;
@@ -221,6 +186,7 @@ body {
     text-shadow: 0 0 20px var(--accent-glow);
 }
 
+/* Menu de navegação */
 .nav-menu {
     display: flex;
     list-style: none;
@@ -236,6 +202,7 @@ body {
     padding: 0.5rem 0;
 }
 
+/* Efeito de linha animada nos links */
 .nav-link::after {
     content: '';
     position: absolute;
@@ -256,7 +223,7 @@ body {
     width: 100%;
 }
 
-/* Menu hamburger */
+/* === MENU HAMBURGER (MOBILE) === */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -272,6 +239,7 @@ body {
     border-radius: 2px;
 }
 
+/* Animação do hamburger quando ativo */
 .hamburger.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
 }
@@ -284,7 +252,10 @@ body {
     transform: rotate(-45deg) translate(7px, -6px);
 }
 
-/* Hero Section */
+/* ========================================
+   SEÇÃO HERO (PRINCIPAL)
+   ======================================== */
+
 .hero {
     min-height: 100vh;
     display: flex;
@@ -308,13 +279,15 @@ body {
     align-items: center;
 }
 
+/* === TÍTULO PRINCIPAL === */
 .hero-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2.5rem, 5vw, 4rem); /* Responsivo */
     font-weight: 800;
     line-height: 1.2;
     margin-bottom: 1.5rem;
 }
 
+/* Linha de apresentação */
 .title-line {
     display: block;
     color: var(--soft-gray);
@@ -324,6 +297,7 @@ body {
     animation: slideInLeft 1s ease-out;
 }
 
+/* Nome principal com efeito gradiente */
 .title-name {
     display: block;
     background: linear-gradient(45deg, var(--primary-blue), var(--light-gray));
@@ -335,6 +309,7 @@ body {
     position: relative;
 }
 
+/* Efeito shimmer no nome */
 .title-name::after {
     content: '';
     position: absolute;
@@ -343,10 +318,11 @@ body {
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, var(--primary-blue), transparent);
-    animation: shimmer 2s infinite;
+    animation: shimmer 4s ease-in-out infinite alternate-reverse;
     opacity: 0.3;
 }
 
+/* Função/cargo */
 .title-role {
     display: block;
     color: var(--soft-gray);
@@ -369,7 +345,10 @@ body {
     animation: fadeInUp 1s ease-out 1.2s both;
 }
 
-/* Botões */
+/* ========================================
+   BOTÕES
+   ======================================== */
+
 .btn {
     display: inline-flex;
     align-items: center;
@@ -386,6 +365,7 @@ body {
     font-family: inherit;
 }
 
+/* Efeito de brilho nos botões */
 .btn::before {
     content: '';
     position: absolute;
@@ -401,6 +381,7 @@ body {
     left: 100%;
 }
 
+/* Botão primário */
 .btn-primary {
     background: linear-gradient(45deg, var(--primary-blue), #0099cc);
     color: white;
@@ -412,6 +393,7 @@ body {
     box-shadow: 0 15px 40px rgba(0, 212, 255, 0.4);
 }
 
+/* Botão secundário */
 .btn-secondary {
     background: transparent;
     color: var(--primary-blue);
@@ -425,12 +407,15 @@ body {
     box-shadow: 0 15px 40px rgba(0, 212, 255, 0.3);
 }
 
-/* Visual Hero */
+/* ========================================
+   VISUAL HERO (LADO DIREITO)
+   ======================================== */
+
 .hero-visual {
     display: flex;
     justify-content: center;
     align-items: center;
-    perspective: 1000px;
+    perspective: 1000px; /* Para efeitos 3D */
 }
 
 .floating-card {
@@ -448,6 +433,7 @@ body {
     transform: rotateY(10deg) rotateX(5deg) translateZ(20px);
 }
 
+/* Simulação de código */
 .code-lines {
     font-family: 'Courier New', monospace;
     font-size: 0.9rem;
@@ -461,11 +447,17 @@ body {
     animation: typewriter 0.5s ease-out forwards;
 }
 
+/* Delays para efeito de digitação */
 .code-lines span:nth-child(1) { animation-delay: 2s; }
 .code-lines span:nth-child(2) { animation-delay: 2.5s; }
 .code-lines span:nth-child(3) { animation-delay: 3s; }
 .code-lines span:nth-child(4) { animation-delay: 3.5s; }
 
+/* ========================================
+   ANIMAÇÕES PRINCIPAIS
+   ======================================== */
+
+/* Flutuação 3D */
 @keyframes float3d {
     0%, 100% {
         transform: translateY(0px) rotateX(0deg) rotateY(0deg);
@@ -475,12 +467,12 @@ body {
     }
 }
 
+/* Efeito de digitação */
 @keyframes typewriter {
-    to {
-        opacity: 1;
-    }
+    to { opacity: 1; }
 }
 
+/* Efeito shimmer */
 @keyframes shimmer {
     0% { transform: translateX(-100%); }
     100% { transform: translateX(100%); }
@@ -531,7 +523,10 @@ body {
     }
 }
 
-/* Seções */
+/* ========================================
+   SEÇÕES GERAIS
+   ======================================== */
+
 section {
     padding: 5rem 0;
     position: relative;
@@ -551,6 +546,7 @@ section {
     position: relative;
 }
 
+/* Linha decorativa sob títulos */
 .title-underline {
     width: 60px;
     height: 4px;
@@ -577,7 +573,10 @@ section {
     50% { opacity: 0.5; }
 }
 
-/* Seção Sobre */
+/* ========================================
+   SEÇÃO SOBRE
+   ======================================== */
+
 .about {
     background: linear-gradient(135deg, var(--deep-blue) 0%, var(--dark-bg) 100%);
 }
@@ -596,6 +595,7 @@ section {
     line-height: 1.8;
 }
 
+/* === GRID DE HABILIDADES === */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -617,6 +617,7 @@ section {
     backdrop-filter: blur(10px);
 }
 
+/* Estado animado das habilidades */
 .skill-item.animate-in {
     transform: translateY(0);
     opacity: 1;
@@ -639,7 +640,7 @@ section {
     color: var(--light-gray);
 }
 
-/* Profile Card */
+/* === CARD DE PERFIL === */
 .profile-card {
     background: var(--card-bg);
     border: 1px solid rgba(0, 212, 255, 0.2);
@@ -656,6 +657,7 @@ section {
     transform: perspective(1000px) rotateY(0deg) translateZ(20px);
 }
 
+/* Imagem de perfil com efeito rotativo */
 .profile-image {
     width: 150px;
     height: 150px;
@@ -667,6 +669,7 @@ section {
     justify-content: center;
     position: relative;
     overflow: hidden;
+    
 }
 
 .profile-image::before {
@@ -676,7 +679,7 @@ section {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.11), transparent);
     animation: rotate 3s linear infinite;
 }
 
@@ -686,12 +689,18 @@ section {
     z-index: 1;
     position: relative;
 }
+.image-placeholder img {
+    width: 175px;
+   
+}
+
 
 @keyframes rotate {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
+/* Estatísticas do perfil */
 .profile-stats {
     display: flex;
     justify-content: space-around;
@@ -714,7 +723,10 @@ section {
     color: var(--soft-gray);
 }
 
-/* Seção Projetos */
+/* ========================================
+   SEÇÃO PROJETOS
+   ======================================== */
+
 .projects {
     background: var(--dark-bg);
 }
@@ -725,6 +737,7 @@ section {
     gap: 2rem;
 }
 
+/* === CARDS DE PROJETO (FLIP) === */
 .project-card {
     height: 350px;
     perspective: 1000px;
@@ -748,6 +761,7 @@ section {
     cursor: pointer;
 }
 
+/* Efeito flip no hover */
 .project-card:hover .card-inner {
     transform: rotateY(180deg);
 }
@@ -774,6 +788,7 @@ section {
     background: linear-gradient(135deg, var(--card-bg), var(--deep-blue));
 }
 
+/* Ícone do projeto */
 .project-image {
     width: 80px;
     height: 80px;
@@ -822,6 +837,7 @@ section {
     margin-bottom: 1.5rem;
 }
 
+/* Tags de tecnologia */
 .tech-tags {
     display: flex;
     flex-wrap: wrap;
@@ -839,6 +855,7 @@ section {
     border: 1px solid rgba(0, 212, 255, 0.3);
 }
 
+/* Links do projeto */
 .project-links {
     display: flex;
     gap: 1rem;
@@ -862,7 +879,10 @@ section {
     box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
 }
 
-/* Seção Contato */
+/* ========================================
+   SEÇÃO CONTATO
+   ======================================== */
+
 .contact {
     background: linear-gradient(135deg, var(--deep-blue) 0%, var(--dark-bg) 100%);
 }
@@ -874,6 +894,7 @@ section {
     align-items: start;
 }
 
+/* === INFORMAÇÕES DE CONTATO === */
 .contact-info h3 {
     font-size: 1.8rem;
     color: var(--light-gray);
@@ -921,6 +942,7 @@ section {
     width: 20px;
 }
 
+/* Links sociais */
 .social-links {
     display: flex;
     gap: 1rem;
@@ -948,7 +970,7 @@ section {
     box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
 }
 
-/* Formulário de contato */
+/* === FORMULÁRIO DE CONTATO === */
 .contact-form-container {
     background: var(--card-bg);
     padding: 2rem;
@@ -993,6 +1015,7 @@ section {
     box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
 }
 
+/* Labels flutuantes */
 .form-group label {
     position: absolute;
     top: 1rem;
@@ -1014,7 +1037,10 @@ section {
     color: var(--primary-blue);
 }
 
-/* Footer */
+/* ========================================
+   FOOTER
+   ======================================== */
+
 .footer {
     background: var(--dark-bg);
     padding: 2rem 0;
@@ -1026,8 +1052,13 @@ section {
     color: var(--soft-gray);
 }
 
-/* Responsividade */
+/* ========================================
+   RESPONSIVIDADE
+   ======================================== */
+
+/* === TABLETS === */
 @media (max-width: 768px) {
+    /* Menu mobile */
     .hamburger {
         display: flex;
     }
@@ -1049,6 +1080,7 @@ section {
         left: 0;
     }
 
+    /* Layout em coluna única */
     .hero-content {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -1069,6 +1101,7 @@ section {
         gap: 2rem;
     }
 
+    /* Botões em coluna */
     .hero-buttons {
         flex-direction: column;
         align-items: center;
@@ -1081,6 +1114,7 @@ section {
     }
 }
 
+/* === SMARTPHONES === */
 @media (max-width: 480px) {
     .container {
         padding: 0 15px;
@@ -1094,6 +1128,7 @@ section {
         font-size: 2rem;
     }
 
+    /* Uma coluna em telas pequenas */
     .skills-grid {
         grid-template-columns: 1fr;
     }
@@ -1108,16 +1143,23 @@ section {
     }
 }
 
-/* Animações de scroll */
+/* ========================================
+   ANIMAÇÕES DE SCROLL
+   ======================================== */
+
 .animate-in {
     animation: slideInUp 0.8s ease-out forwards;
 }
 
-/* Melhorias de performance */
+/* ========================================
+   OTIMIZAÇÕES DE PERFORMANCE
+   ======================================== */
+
 * {
-    will-change: auto;
+    will-change: auto; /* Evita uso desnecessário de GPU */
 }
 
+/* Apenas elementos que realmente precisam de aceleração */
 .project-card:hover,
 .skill-item:hover,
 .btn:hover {
